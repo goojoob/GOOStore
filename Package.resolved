@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/goojoob/Utils/",
+      "state" : {
+        "revision" : "9d79bd7d4e91a53b4971ea51467abd0d2dddedce",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
