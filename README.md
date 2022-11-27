@@ -79,15 +79,31 @@ ForEach(storeManager
     }
 ```
 
-_Process the purchase in a View:_
+_Let Restore Purchases available (for example in the toolbar):_
+
+```swift
+.toolbar {
+    ToolbarItem(placement: .navigationBarTrailing) {
+        Button {
+            storeManager.restoreProducts()
+        } label: {
+            Text("Restore Purchases")
+        }
+    }
+}
+```
+
+_Process the purchase/restore in a View:_
 
 ```swift
 .onChange(of: storeManager.transactionState) { transactionState in
     switch transactionState {
     case .purchased:
         print("StoreManager - Purchased '\(storeManager.lastBuy)'")
+        //treat your purchase
     case .restored:
         print("StoreManager - Restored '\(storeManager.lastBuy)'")
+        //treat your restored purchases
     default:
         break
     }
