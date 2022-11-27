@@ -1,6 +1,8 @@
 # GOOStore
 Store Manager for SwiftUI and In-App Purchases
 
+<br/>
+
 ## About GOOStore 💶
 
 _GOOStore is a Library prepared to use In-App Purchases in `iOS` and `macOS` developments_
@@ -34,6 +36,9 @@ _Add your In-App Purchases in App Store Connect_
 
 _Declare your available products id's and quantity._
 
+* Consumable items need a quantity you may treat when the purchase is done
+* Non-Consumable items don't need a quantity, so you may leave it at 0
+
 ```swift
 let myProducts: [String: Int] = ["dev.goojoob.MyApp.10lives": 10, "dev.goojoob.MyApp.50lives": 50, "dev.goojoob.MyApp.ProUser": 0]
 ```
@@ -48,7 +53,7 @@ import GOOStore
 @StateObject private var storeManager: GOOStore = GOOStore(products: myProducts)
 ```
 
-_Show your products in a View:_
+_Show your products in a View (this design is up to you):_
 
 ```swift
 ForEach(storeManager
@@ -57,10 +62,7 @@ ForEach(storeManager
         HStack {
             VStack(alignment: .leading) {
                 Text(product.localizedTitle)
-                    .font(.subheadline)
                 Text(product.localizedDescription)
-                    .font(.caption2)
-                    .foregroundColor(.secondary)
             }
 
             Spacer()
@@ -70,10 +72,8 @@ ForEach(storeManager
             } label: {
                 HStack {
                     Text("\(product.localizedPrice ?? "00")")
-                        .font(.callout)
                     Image(systemName: "creditcard")
                 }
-                .foregroundColor(.blue)
             }
         }
     }
