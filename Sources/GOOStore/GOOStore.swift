@@ -2,6 +2,7 @@ import StoreKit
 import Utils
 
 @available(macOS 10.15, *)
+@available(iOS 13.0, *)
 public class GOOStore: NSObject, ObservableObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     @Published public private(set) var myProducts: [SKProduct] = [SKProduct]()
     @Published public private(set) var transactionState: SKPaymentTransactionState?
