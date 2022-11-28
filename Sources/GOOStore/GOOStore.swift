@@ -1,5 +1,5 @@
 import StoreKit
-import Utils
+import GOOUtils
 
 @available(macOS 10.15, *)
 @available(iOS 13.0, *)
