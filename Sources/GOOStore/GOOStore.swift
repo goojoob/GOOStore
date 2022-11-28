@@ -72,14 +72,14 @@ public class GOOStore: NSObject, ObservableObject, SKProductsRequestDelegate, SK
                 transactionState = .purchasing
             case .purchased:
                 print("GOOStore - Payment Queue: Purchased \(transaction.payment.productIdentifier)")
+                lastBuy = (transaction.payment.productIdentifier, productsStore[transaction.payment.productIdentifier] ?? 0)
                 queue.finishTransaction(transaction)
                 transactionState = .purchased
-                lastBuy = (transaction.payment.productIdentifier, productsStore[transaction.payment.productIdentifier] ?? 0)
             case .restored:
                 print("GOOStore - Payment Queue: Restored \(transaction.payment.productIdentifier)")
+                lastBuy = (transaction.payment.productIdentifier, productsStore[transaction.payment.productIdentifier] ?? 0)
                 queue.finishTransaction(transaction)
                 transactionState = .restored
-                lastBuy = (transaction.payment.productIdentifier, productsStore[transaction.payment.productIdentifier] ?? 0)
             case .failed, .deferred:
                 print("GOOStore - Payment Queue Error: \(String(describing: transaction.error))")
                 queue.finishTransaction(transaction)

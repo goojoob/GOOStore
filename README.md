@@ -3,13 +3,13 @@ Store Manager for SwiftUI and In-App Purchases
 
 <br/>
 
-## About GOOStore 💶
+## 💶 About GOOStore
 
-_GOOStore is a Library prepared to use In-App Purchases in `iOS` and `macOS` developments_
+_GOOStore is a Library prepared to use In-App Purchases in `iOS` and `macOS` developments with SwiftUI_
 
 <br/>
 
-## Installation ⚙️
+## ⚙️ Installation
 
 #### Setup your XCode Project and App Store Connect
 
@@ -32,7 +32,7 @@ _Add your In-App Purchases in App Store Connect_
 
 <br/>
 
-## Usage 🔧
+## 🔧 Usage
 
 _Declare your available products id's and quantity as a Dictionary._
 
@@ -113,33 +113,33 @@ _Process the purchase/restore in a View:_
 
 <br/>
 
-## Compatibility 👨‍💻
+## 👨‍💻 Compatibility
 
 * macOS 10.15+
 * iOS 13.0+
 
 <br/>
 
-## Created with 🛠️
+## 🛠️ Created with
 
 * [XCode 14.1](https://developer.apple.com/xcode/)
 * [Swift 5.7.1](https://swift.org/)
 
 <br/>
 
-## Author ✒️
+## ✒️ Author
 
 <img src ="https://goojoob.dev/images/logo.svg" width=30 /> **Goojoob.dev** - *Original development* - [goojoob](https://twitter.com/goojoobdev) 
 
 <br/>
 
-## License 📄
+## 📄 License
 
 <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license (CC BY 4.0)</a>.
 
 <br/>
 
-## Thank You 🎁
+## 🎁 Thank You
 
 * Talk to others about this project 📢
 * We can have a ☕ whenever you want
