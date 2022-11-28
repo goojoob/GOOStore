@@ -15,11 +15,11 @@ let package = Package(
             targets: ["GOOStore"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/goojoob/Utils/", from: "1.1.0")
+        .package(url: "https://github.com/goojoob/GOOUtils", from: "0.1.0")
     ],
     targets: [
         .target(
             name: "GOOStore",
-            dependencies: ["Utils"])
+            dependencies: ["GOOUtils"])
     ]
 )
