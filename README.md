@@ -34,13 +34,13 @@ _Add your In-App Purchases in App Store Connect_
 
 ## Usage 🔧
 
-_Declare your available products id's and quantity._
+_Declare your available products id's and quantity as a Dictionary._
 
 * Consumable items need a quantity you may treat when the purchase is done
-* Non-Consumable items don't need a quantity, so you may leave it at 0
+* Non-Consumable items don't need a quantity, so you may use a number to identify it
 
 ```swift
-let myProducts: [String: Int] = ["dev.goojoob.MyApp.10lives": 10, "dev.goojoob.MyApp.50lives": 50, "dev.goojoob.MyApp.ProUser": 0]
+let myProducts: [String: Int] = ["dev.goojoob.MyApp.10lives": 10, "dev.goojoob.MyApp.50lives": 50, "dev.goojoob.MyApp.ProUser": 999]
 ```
 
 _Create a StateObject var in your View with your products:_
@@ -95,20 +95,28 @@ _Let Restore Purchases available (for example in the toolbar):_
 
 _Process the purchase/restore in a View:_
 
+* Variable lastBuy is a tuple containing the las item purchased, its productId and quantity
+
 ```swift
 .onChange(of: storeManager.transactionState) { transactionState in
     switch transactionState {
     case .purchased:
-        print("StoreManager - Purchased '\(storeManager.lastBuy)'")
+        print("StoreManager - Purchased: '\(storeManager.lastBuy.productId)' Quantity: \(storeManager.lastBuy.quantity)")
         //treat your purchase
     case .restored:
-        print("StoreManager - Restored '\(storeManager.lastBuy)'")
         //treat your restored purchases
     default:
         break
     }
 }
 ```
+
+<br/>
+
+## Compatibility 👨‍💻
+
+* macOS 10.15+
+* iOS 13.0+
 
 <br/>
 

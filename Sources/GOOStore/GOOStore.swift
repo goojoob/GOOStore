@@ -6,7 +6,7 @@ import Utils
 public class GOOStore: NSObject, ObservableObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     @Published public private(set) var myProducts: [SKProduct] = [SKProduct]()
     @Published public private(set) var transactionState: SKPaymentTransactionState?
-    @Published public private(set) var lastBuy: Int = 0
+    @Published public private(set) var lastBuy: (productId: String, quantity: Int) = ("", 0)
     private var request: SKProductsRequest!
     private var productsStore: [String: Int] = [:]
 
@@ -74,12 +74,12 @@ public class GOOStore: NSObject, ObservableObject, SKProductsRequestDelegate, SK
                 print("GOOStore - Payment Queue: Purchased \(transaction.payment.productIdentifier)")
                 queue.finishTransaction(transaction)
                 transactionState = .purchased
-                lastBuy = productsStore[transaction.payment.productIdentifier] ?? 0
+                lastBuy = (transaction.payment.productIdentifier, productsStore[transaction.payment.productIdentifier] ?? 0)
             case .restored:
                 print("GOOStore - Payment Queue: Restored \(transaction.payment.productIdentifier)")
                 queue.finishTransaction(transaction)
                 transactionState = .restored
-                lastBuy = productsStore[transaction.payment.productIdentifier] ?? 0
+                lastBuy = (transaction.payment.productIdentifier, productsStore[transaction.payment.productIdentifier] ?? 0)
             case .failed, .deferred:
                 print("GOOStore - Payment Queue Error: \(String(describing: transaction.error))")
                 queue.finishTransaction(transaction)
