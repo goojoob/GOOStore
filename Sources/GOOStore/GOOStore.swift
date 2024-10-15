@@ -92,6 +92,15 @@ public class GOOStore: NSObject, ObservableObject, SKProductsRequestDelegate, SK
 
     // RESTORE PRODUCT
 
+    public func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        if queue.transactions.isEmpty {
+            print("GOOStore - No purchases to restore.")
+            transactionState = .failed
+        } else {
+            print("GOOStore - Finished restoring purchases.")
+        }
+    }
+
     public func restoreProducts() {
         print("GOOStore - Restoring products ...")
         SKPaymentQueue.default().restoreCompletedTransactions()
